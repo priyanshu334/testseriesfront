@@ -10,10 +10,10 @@ const AboutPage = () => {
   // Parallax effect on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scrollElements = document.querySelectorAll('.parallax-element');
+      const scrollElements = document.querySelectorAll<HTMLElement>('.parallax-element');
       scrollElements.forEach(element => {
-        const speed = element.getAttribute('data-speed') || 0.05;
-        const yPos = -window.scrollY * 2;
+        const speed = parseFloat(element.getAttribute('data-speed') || '0.05');
+        const yPos = -window.scrollY * speed;
         element.style.transform = `translateY(${yPos}px)`;
       });
     };
